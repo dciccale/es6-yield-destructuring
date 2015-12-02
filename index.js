@@ -10,6 +10,4 @@ server.connection({port: PORT});
 server.route(require('./user'));
 server.route(require('./task'));
 
-server.start(() => {
-  console.log('Server listening on %d', PORT);
-});
+server.start(() => console.log('Server listening on %d', PORT));
