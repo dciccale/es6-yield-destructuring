@@ -2,6 +2,10 @@
 
 Exploring error handling using `yield` and `destructuring`.
 
+## Requirements
+
+Node v4.2.2
+
 ## Installation
 
 ```sh
