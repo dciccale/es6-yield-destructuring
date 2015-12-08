@@ -4,7 +4,7 @@
   "description": "Async error handling with yield and destructuring",
   "main": "index.js",
   "scripts": {
-    "test": "echo ok",
+    "test": "node --harmony_destructuring ./node_modules/.bin/ava test/*.js",
     "start": "node --harmony_destructuring ."
   },
   "author": "Denis Ciccale (@dciccale)",
@@ -12,5 +12,9 @@
   "dependencies": {
     "bluebird": "^3.0.6",
     "hapi": "^11.1.2"
+  },
+  "devDependencies": {
+    "ava": "^0.7.0",
+    "tap": "^2.3.1"
   }
 }

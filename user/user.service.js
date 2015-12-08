@@ -3,7 +3,7 @@
 var Promise = require('bluebird');
 var co = Promise.coroutine;
 
-var User = require('./User.model');
+var User = require('./user.model');
 
 var UserService = {
   get: co(function* () {
