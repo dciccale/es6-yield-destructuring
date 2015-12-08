@@ -3,8 +3,8 @@
 var co = require('bluebird').coroutine;
 
 /*
- * Helper function to return the value
- * in the form of [val, err]
+ * Helper function to try/catch
+ * and return a value in the form of [val, err]
  */
 module.exports = co(function* (fn, ...args) {
   var [val, err] = [null, null];
