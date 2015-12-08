@@ -1,27 +1,21 @@
 'use strict';
 
-var Promise = require('bluebird');
-var co = Promise.coroutine;
+var co = require('bluebird').coroutine;
 
+var valerr = require('../valerr');
 var Task = require('./task.model');
 var taskErrors = require('./task-errors');
 
 var TaskService = {
   getByUserId: co(function* (user_id) {
-    var tasks;
-
-    try {
-      tasks = yield Task.find({user_id: user_id});
-    } catch (err) {
-      return [null, err];
-    }
+    var [tasks, err] = yield valerr(Task.find, {user_id: user_id});
 
     // Throw custom error if no tasks found
     if (!tasks.length) {
-      return [null, new taskErrors.TasksNotFound];
+      return [tasks, new taskErrors.TasksNotFound];
     }
 
-    return [tasks, null];
+    return [tasks, err];
   })
 };
 

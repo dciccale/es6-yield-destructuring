@@ -4,8 +4,8 @@
   "description": "Async error handling with yield and destructuring",
   "main": "index.js",
   "scripts": {
-    "test": "node --harmony_destructuring ./node_modules/.bin/ava test/*.js",
-    "start": "node --harmony_destructuring ."
+    "test": "node --harmony_destructuring --harmony_rest_parameters ./node_modules/.bin/ava test/*.js",
+    "start": "node --harmony_destructuring --harmony_rest_parameters ."
   },
   "author": "Denis Ciccale (@dciccale)",
   "license": "MIT",

@@ -1,7 +1,6 @@
 'use strict';
 
-var Promise = require('bluebird');
-var co = Promise.coroutine;
+var co = require('bluebird').coroutine;
 
 var TaskService = require('./task.service');
 var taskErrors = require('./task-errors');

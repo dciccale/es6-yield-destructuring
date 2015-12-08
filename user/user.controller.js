@@ -1,7 +1,6 @@
 'use strict';
 
-var Promise = require('bluebird');
-var co = Promise.coroutine;
+var co = require('bluebird').coroutine;
 
 var UserService = require('./user.service');
 
