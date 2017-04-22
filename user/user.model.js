@@ -1,10 +1,8 @@
-'use strict';
+const Promise = require('bluebird');
 
-var Promise = require('bluebird');
+const users = require('./users.json');
 
-var users = require('./users.json');
-
-var User = {
+const User = {
   find: function () {
     return Promise.resolve(users);
   }

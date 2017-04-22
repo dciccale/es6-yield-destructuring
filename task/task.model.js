@@ -1,14 +1,9 @@
-'use strict';
+const Promise = require('bluebird');
 
-var Promise = require('bluebird');
+const tasks = require('./tasks.json');
 
-var tasks = require('./tasks.json');
+const Task = {};
 
-var Task = {
-  find: function (query) {
-    var userTasks = tasks.filter(t => t.user_id === query.user_id);
-    return Promise.resolve(userTasks);
-  }
-};
+Task.find = (query) => Promise.filter(tasks, t => t.user_id === query.user_id);
 
 module.exports = Task;

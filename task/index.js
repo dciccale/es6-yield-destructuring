@@ -1,11 +1,11 @@
-'use strict';
-
-var TaskController = require('./task.controller');
+const TaskModel = require('./task.model');
+const taskService = require('./task.service')(TaskModel);
+const taskController = require('./task.controller')(taskService);
 
 module.exports = [
   {
     method: 'GET',
     path: '/tasks/{id}',
-    handler: TaskController.getByUserId
+    handler: taskController.getByUserId
   }
 ];

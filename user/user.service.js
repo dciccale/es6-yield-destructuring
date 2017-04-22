@@ -1,22 +1,18 @@
-'use strict';
+const Promise = require('bluebird');
+const co = Promise.coroutine;
 
-var Promise = require('bluebird');
-var co = Promise.coroutine;
-
-var User = require('./user.model');
-
-var UserService = {
+const UserService = (UserModel) => ({
   get: co(function* () {
-    var users;
+    let [users, err] = [[], null];
 
     try {
-      users = yield User.find();
-    } catch (err) {
-      return [null, err];
+      users = yield UserModel.find();
+    } catch (e) {
+      err = e;
     }
 
-    return [users, null];
+    return [users, err];
   })
-};
+});
 
 module.exports = UserService;

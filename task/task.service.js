@@ -1,17 +1,14 @@
-'use strict';
+const Promise = require('bluebird');
+const co = Promise.coroutine;
 
-var Promise = require('bluebird');
-var co = Promise.coroutine;
+const taskErrors = require('./task-errors');
 
-var Task = require('./task.model');
-var taskErrors = require('./task-errors');
-
-var TaskService = {
+const TaskService = (TaskModel) => ({
   getByUserId: co(function* (user_id) {
-    var tasks;
+    let tasks = [];
 
     try {
-      tasks = yield Task.find({user_id: user_id});
+      tasks = yield TaskModel.find({user_id: user_id});
     } catch (err) {
       return [null, err];
     }
@@ -23,6 +20,6 @@ var TaskService = {
 
     return [tasks, null];
   })
-};
+});
 
 module.exports = TaskService;
